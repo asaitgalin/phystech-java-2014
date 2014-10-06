@@ -15,7 +15,7 @@ phystech-java-2014
    * db-table-impl
    * db-shell-impl
    * db-main
-4. Используется ApplicationContext, конфигурируемый через аннотации. 
+4. Используется Spring ApplicationContext, конфигурируемый через аннотации. 
 5. Команды для Shell теперь добавляются сами через @Autowired. ShellState тоже заполняется автоматически через @Autowired + 
    путь к базе данных выставляется через внешний .properties файл (см. корень проекта)
 5. Прикручен логгинг через slf4j + log4j. Логгирует в файл (указывается через -Dlog.path=...) вызовы команд shell. 
