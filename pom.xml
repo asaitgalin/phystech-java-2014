@@ -40,4 +40,11 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>fediq.nexus</id>
+            <name>Fediq Sonatype Nexus</name>
+            <url>http://nexus.fediq.ru:8080/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
 </project>
