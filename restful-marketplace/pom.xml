@@ -5,7 +5,14 @@
   <groupId>ru.phystech.java2.asaitgalin</groupId>
   <artifactId>restful-marketplace</artifactId>
   <version>1.0</version>
-  <packaging>jar</packaging>
+    <modules>
+        <module>marketplace-api</module>
+        <module>inmemory-ware-storage</module>
+      <module>inmemory-trader-catalog</module>
+      <module>rest-service</module>
+      <module>marketplace-backend-main</module>
+    </modules>
+    <packaging>pom</packaging>
 
   <name>restful-marketplace</name>
   <url>http://maven.apache.org</url>
@@ -13,6 +20,11 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.version>1.0</project.version>
+
+    <spring.context.version>4.1.0.RELEASE</spring.context.version>
+    <jackson.databind.version>2.4.3</jackson.databind.version>
+    <spring.boot.version>1.1.4.RELEASE</spring.boot.version>
+    <guava.version>18.0</guava.version>
   </properties>
 
   <dependencies>
