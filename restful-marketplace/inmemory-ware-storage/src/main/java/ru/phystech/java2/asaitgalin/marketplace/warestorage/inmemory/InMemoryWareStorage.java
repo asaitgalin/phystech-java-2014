@@ -25,7 +25,7 @@ public class InMemoryWareStorage implements WareStorage {
     }
 
     @Override
-    public void addWare(Ware ware) {
+    public void putWare(Ware ware) {
         if (ware == null) {
             throw new IllegalArgumentException("ware argument is null");
         }
@@ -49,6 +49,7 @@ public class InMemoryWareStorage implements WareStorage {
         ware.setName(description.getName());
         ware.setMeasuring(description.getMeasuring());
         ware.setId(UUID.randomUUID().toString());
+        putWare(ware);
         return ware;
     }
 

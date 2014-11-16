@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.phystech.java2.asaitgalin.marketplace.api.TraderCatalog;
 import ru.phystech.java2.asaitgalin.marketplace.model.Trader;
 import ru.phystech.java2.asaitgalin.marketplace.model.TraderDescription;
-import ru.phystech.java2.asaitgalin.marketplace.rest.exceptions.BadRequestException;
-import ru.phystech.java2.asaitgalin.marketplace.rest.exceptions.NotFoundException;
+import ru.phystech.java2.asaitgalin.marketplace.exceptions.BadRequestException;
+import ru.phystech.java2.asaitgalin.marketplace.exceptions.NotFoundException;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -29,10 +29,9 @@ public class TradersRestResourceController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public Trader createTrader(@RequestBody TraderDescription description) {
+    public String createTrader(@RequestBody TraderDescription description) {
         Trader trader = traderCatalog.createTrader(description);
-        traderCatalog.addTrader(trader);
-        return trader;
+        return trader.getId();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
@@ -40,7 +39,7 @@ public class TradersRestResourceController {
         if (!id.equals(trader.getId())) {
             throw new BadRequestException();
         }
-        traderCatalog.addTrader(trader);
+        traderCatalog.putTrader(trader);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -49,6 +48,7 @@ public class TradersRestResourceController {
             throw new NotFoundException();
         }
     }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<String> listTraders() {
         return traderCatalog.getTradersIds();

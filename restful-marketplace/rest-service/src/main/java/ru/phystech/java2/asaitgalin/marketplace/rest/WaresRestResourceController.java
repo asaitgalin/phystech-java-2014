@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.phystech.java2.asaitgalin.marketplace.api.WareStorage;
 import ru.phystech.java2.asaitgalin.marketplace.model.Ware;
 import ru.phystech.java2.asaitgalin.marketplace.model.WareDescription;
-import ru.phystech.java2.asaitgalin.marketplace.rest.exceptions.BadRequestException;
-import ru.phystech.java2.asaitgalin.marketplace.rest.exceptions.NotFoundException;
+import ru.phystech.java2.asaitgalin.marketplace.exceptions.BadRequestException;
+import ru.phystech.java2.asaitgalin.marketplace.exceptions.NotFoundException;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -29,10 +29,9 @@ public class WaresRestResourceController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public Ware createWare(@RequestBody WareDescription description) {
+    public String createWare(@RequestBody WareDescription description) {
         Ware ware = storage.createWare(description);
-        storage.addWare(ware);
-        return ware;
+        return ware.getId();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
@@ -40,7 +39,7 @@ public class WaresRestResourceController {
         if (!id.equals(ware.getId())) {
             throw new BadRequestException();
         }
-        storage.addWare(ware);
+        storage.putWare(ware);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -49,6 +48,7 @@ public class WaresRestResourceController {
             throw new NotFoundException();
         }
     }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<String> listWares() {
         return storage.getWaresIds();

@@ -9,16 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>marketplace-backend-main</artifactId>
+    <artifactId>marketplace-frontend-main</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>ru.phystech.java2.asaitgalin</groupId>
-            <artifactId>rest-service</artifactId>
+            <artifactId>web-ui-service</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -35,4 +34,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

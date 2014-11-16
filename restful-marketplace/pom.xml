@@ -6,11 +6,15 @@
   <artifactId>restful-marketplace</artifactId>
   <version>1.0</version>
     <modules>
-        <module>marketplace-api</module>
-        <module>inmemory-ware-storage</module>
+      <module>marketplace-api</module>
+      <module>inmemory-ware-storage</module>
       <module>inmemory-trader-catalog</module>
       <module>rest-service</module>
       <module>marketplace-backend-main</module>
+      <module>web-ui-service</module>
+      <module>marketplace-frontend-main</module>
+      <module>remote-ware-storage</module>
+      <module>remote-trader-catalog</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -23,8 +27,10 @@
 
     <spring.context.version>4.1.0.RELEASE</spring.context.version>
     <jackson.databind.version>2.4.3</jackson.databind.version>
-    <spring.boot.version>1.1.4.RELEASE</spring.boot.version>
+    <spring.boot.version>1.1.9.RELEASE</spring.boot.version>
     <guava.version>18.0</guava.version>
+    <java.version>1.8</java.version>
+    <thymeleaf.version>2.1.3.RELEASE</thymeleaf.version>
   </properties>
 
   <dependencies>
@@ -34,5 +40,25 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.context.version}</version>
+    </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.2</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>

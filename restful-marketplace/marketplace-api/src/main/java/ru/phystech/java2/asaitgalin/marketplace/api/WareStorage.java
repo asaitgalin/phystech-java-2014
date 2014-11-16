@@ -15,11 +15,11 @@ public interface WareStorage {
     Ware getWareById(String id);
 
     /**
-     * Adds {@link ru.phystech.java2.asaitgalin.marketplace.model.Ware} to storage
+     * Puts {@link ru.phystech.java2.asaitgalin.marketplace.model.Ware} to storage
      * @param ware
      * @throws java.lang.IllegalArgumentException if argument is null
      */
-    void addWare(Ware ware);
+    void putWare(Ware ware);
 
     /**
      * Removes {@link ru.phystech.java2.asaitgalin.marketplace.model.Ware} using given id
@@ -31,6 +31,7 @@ public interface WareStorage {
 
     /**
      * Creates {@link ru.phystech.java2.asaitgalin.marketplace.model.Ware} from description with unique id
+     * and puts it to storage automatically
      * @param description
      * @return {@link ru.phystech.java2.asaitgalin.marketplace.model.Ware} instance
      * @throws java.lang.IllegalArgumentException if argument is null

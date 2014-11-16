@@ -15,11 +15,11 @@ public interface TraderCatalog {
     Trader getTraderById(String id);
 
     /**
-     * Adds {@link ru.phystech.java2.asaitgalin.marketplace.model.Trader} to storage
+     * Puts {@link ru.phystech.java2.asaitgalin.marketplace.model.Trader} to storage
      * @param trader
      * @throws java.lang.IllegalArgumentException if argument is null
      */
-    void addTrader(Trader trader);
+    void putTrader(Trader trader);
 
     /**
      * Removes {@link ru.phystech.java2.asaitgalin.marketplace.model.Trader} using given id
@@ -31,6 +31,7 @@ public interface TraderCatalog {
 
     /**
      * Creates {@link ru.phystech.java2.asaitgalin.marketplace.model.Trader} from description with unique id
+     * and puts it to catalog automatically
      * @param description
      * @return {@link ru.phystech.java2.asaitgalin.marketplace.model.Trader} instance
      * @throws java.lang.IllegalArgumentException if argument is null or has illegal fields

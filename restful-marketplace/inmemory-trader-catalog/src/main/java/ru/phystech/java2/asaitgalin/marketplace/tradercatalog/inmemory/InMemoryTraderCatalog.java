@@ -21,7 +21,7 @@ public class InMemoryTraderCatalog implements TraderCatalog {
     }
 
     @Override
-    public void addTrader(Trader trader) {
+    public void putTrader(Trader trader) {
         if (trader == null) {
             throw new IllegalArgumentException("trader argument is null");
         }
@@ -48,6 +48,7 @@ public class InMemoryTraderCatalog implements TraderCatalog {
         trader.setName(description.getName());
         trader.setCountryCode(description.getCountryCode());
         trader.setId(UUID.randomUUID().toString());
+        putTrader(trader);
         return trader;
     }
 

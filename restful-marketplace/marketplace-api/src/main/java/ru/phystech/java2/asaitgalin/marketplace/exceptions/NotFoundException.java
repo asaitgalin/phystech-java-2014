@@ -1,4 +1,4 @@
-package ru.phystech.java2.asaitgalin.marketplace.rest.exceptions;
+package ru.phystech.java2.asaitgalin.marketplace.exceptions;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException() {
